@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -52,16 +53,68 @@
     body.loaded .transition-wrapper {
       opacity: 1;
     }
+
+    /* ===== NEW HERO SECTION ===== */
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #076778, #e52e71, #6a11cb);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientText 6s linear infinite;
+    }
+
+    @keyframes gradientText {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-top: 10px;
+      color: inherit;
+      opacity: 0.9;
+    }
+
+    .hero-small {
+      font-size: 0.9rem;
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
   </style>
 </head>
+
 <body>
   <div class="transition-wrapper">
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
+
+      <!-- ===== HERO SECTION (ADDED) ===== -->
+      <div class="hero">
+        <div class="hero-title">
+          🚀 Smart YouTube Playlist Scheduler
+        </div>
+
+        <div class="hero-subtitle">
+          Turn Any YouTube Playlist into a Smart Daily Learning Plan <br>
+          Automatically split videos by time or days and stay consistent with your learning.
+        </div>
+      </div>
+
+      <!-- ===== EXISTING FORM (UNCHANGED) ===== -->
       <div class="card w-100" style="max-width: 500px;">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h3 class="mb-0">🎬 Playlist Scheduler</h3>
           <i id="themeToggle" class="fas fa-moon"></i>
         </div>
+
         <form method="POST" action="/schedule" onsubmit="return showSpinner()">
           <div class="mb-3">
             <label for="playlist_url" class="form-label">YouTube Playlist URL</label>
@@ -92,17 +145,23 @@
             <div class="spinner-border text-info" role="status"></div>
           </div>
         </form>
+
+        <!-- ===== SMALL TEXT ===== -->
+        <div class="hero-small text-center">
+          No login required • 100% Free
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Developed by LinkedIn link -->
+  <!-- LinkedIn -->
   <div style="position: fixed; bottom: 170px; right: 150px; font-size: 0.95rem; display: flex; align-items: center;">
-  <span>Developed by&nbsp;</span>
-  <a href="https://www.linkedin.com/in/theaashishgautam/" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: #0a66c2;">
-    <i class="fab fa-linkedin fa-lg"></i>&nbsp;<strong>Aashish</strong>
-  </a>
-</div>
+    <span>Developed by&nbsp;</span>
+    <a href="https://www.linkedin.com/in/theaashishgautam/" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: #0a66c2;">
+      <i class="fab fa-linkedin fa-lg"></i>&nbsp;<strong>Aashish</strong>
+    </a>
+  </div>
 
   <script>
     function toggleFields() {
